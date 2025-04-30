@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compartilhar Localização</title>
+</head>
+<body>
+  <h1>Deseja compartilhar sua localização?</h1>
+  <button onclick="getLocation()">Compartilhar</button>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(sendLocation);
+      } else {
+        alert("Geolocalização não é suportada neste navegador.");
+      }
+    }
+
+    function sendLocation(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      // Aqui você pode enviar para seu servidor
+      console.log("Localização:", lat, lon);
+      alert(`Localização: ${lat}, ${lon}`);
+    }
+  </script>
+</body>
+</html>
